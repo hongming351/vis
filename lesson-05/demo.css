@@ -1,0 +1,245 @@
+/* ============================================================
+ * lesson-05/demo.css — 第 5 章交互演示专用样式
+ * ------------------------------------------------------------
+ * 由旧版 styles.css 裁减而来：只保留 demos.js 依赖的演示规则，
+ * 页面级样式（Tab / 讲解区 / 代码区 / 语法高亮 / 翻页 / 顶栏）
+ * 已由 ../shared/theme.css 与 ../shared/warm-skin.css 统一提供。
+ * ============================================================ */
+
+.tree-list .count { font-size: 11px;
+  color: #6b7280;
+  background: #f1f5f9;
+  padding: 1px 6px;
+  border-radius: 8px;
+  margin-left: 4px; }
+
+/* ---------- 控制条（共用） ---------- */
+.controls { display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 0; }
+
+.controls label { font-size: 13px; color: #475569; }
+
+.controls select, .controls input { padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  font-family: inherit;
+  background: white; }
+
+.controls input[type=range] { width: 160px; }
+
+.demo-legend { font-size: 12px;
+  color: #64748b;
+  margin: 8px 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; }
+
+.chapter-nav a.active { background: #eff6ff;
+  color: #1d4ed8;
+  border-left-color: #2563eb;
+  font-weight: 600; }
+
+.chapter.active { display: block; }
+
+.tab-btn.active { color: #2563eb;
+  border-bottom-color: #2563eb; }
+
+.tab-panel.active { display: block; }
+
+/* ---------- 演示区 ---------- */
+.demo-hint { background: #f0f9ff;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #0c4a6e;
+  margin-bottom: 12px; }
+
+.demo-mount { background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 16px;
+  min-height: 200px; }
+
+.demo-mount svg { display: block; margin: 8px 0; }
+
+.demo-sub { background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 12px 0; }
+
+.demo-sub h4 { font-size: 13px;
+  color: #475569;
+  margin-bottom: 8px;
+  font-weight: 600; }
+
+.demo-detail { background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 14px;
+  font-size: 13px;
+  color: #475569;
+  min-height: 140px; }
+
+.demo-detail h4 { color: #1e293b; margin-bottom: 6px; }
+
+.demo-legend { font-size: 12px;
+  color: #64748b;
+  margin-top: 8px; }
+
+.console { background: #0f172a;
+  color: #cbd5e1;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 12px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 8px 0; }
+
+.controls { display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 12px 0; }
+
+.controls select { padding: 5px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit; }
+
+.slope-control .slope-readout { font-family: "JetBrains Mono", Consolas, monospace;
+  background: #1e293b;
+  color: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 13px; }
+
+.ms-threshold-control { display: flex; align-items: center; gap: 12px; margin: 10px 0;
+  font-size: 13px; }
+
+.ms-threshold-control input[type=range] { width: 280px }
+
+/* 通用 demo 控件 */
+.demo-control { display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 8px 0; align-items: center;
+  font-size: 13px; }
+
+.demo-control label { display: inline-flex; align-items: center; gap: 4px;
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: #475569;
+  cursor: pointer; }
+
+.demo-control label.active { background: #ede9fe;
+  color: #4338ca;
+  font-weight: 600; }
+
+.demo-control select { padding: 4px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 13px; }
+
+.harmony-card.active { background: #fef3c7; border-color: #f59e0b; }
+
+/* =========================================
+   Doc-05 时序数据可视化 专用样式
+   ========================================= */
+
+/* 时序图通用 */
+.ts-svg { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; display: block; }
+
+.ts-svg .hover-line { stroke: #1e293b; stroke-width: 1; stroke-dasharray: 3 3; }
+
+.ts-svg .tip { fill: #1e293b; }
+
+/* 属性卡片（5.1） */
+.attr-grid { display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 12px 0; }
+
+.attr-icon { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+
+.attr-name { font-size: 13px; font-weight: 600; color: #1e293b; }
+
+.attr-key { font-size: 10px; color: #94a3b8; margin-top: 2px; font-family: "JetBrains Mono", monospace; }
+
+.attr-detail-card { background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #334155; }
+
+.attr-detail-card h4 { margin: 0 0 4px; font-size: 15px; color: #1e293b; }
+
+.attr-detail-card .example { background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #475569; }
+
+/* 日历热图（5.3） */
+.cal-svg { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; display: block; margin: 10px 0; }
+
+.cal-svg rect.cell { stroke: #fff; stroke-width: 1; }
+
+.cal-legend-bar { display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #64748b;
+  margin: 8px 0; }
+
+.legend-strip { display: flex; flex: 1; height: 14px; border-radius: 3px; overflow: hidden; }
+
+.legend-strip > div { flex: 1; }
+
+.legend-low, .legend-high { font-family: "JetBrains Mono", monospace; }
+
+/* 螺旋（5.4） */
+.spiral-svg { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; display: block; margin: 10px 0; }
+
+.spiral-svg path.seg { cursor: pointer; transition: stroke 0.15s; }
+
+/* Storyline（5.5） */
+.storyline-svg { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; display: block; }
+
+.storyline-svg .event-layer circle { transition: r 0.15s; }
+
+.storyline-svg .event-layer g.event:hover circle { r: 22; }
+
+/* ============================================================
+ * 共享 hover 提示层（5.3 日历热图 / 5.4 螺旋 / 5.5 Storyline 共用）
+ * 全章只有一个 .ts-tip 元素，靠 hidden 开关，不会互相堆叠
+ * ============================================================ */
+.ts-tip {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  max-width: 240px;
+  padding: 6px 11px;
+  border-radius: 8px;
+  background: #161513;
+  color: #F4F0E8;
+  font-family: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  font-size: 11.5px;
+  line-height: 1.55;
+  white-space: pre-line;
+  pointer-events: none;
+  box-shadow: 0 6px 20px rgba(22, 21, 19, 0.22);
+}
+.ts-tip[hidden] { display: none; }

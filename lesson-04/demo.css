@@ -1,0 +1,199 @@
+/* ============================================================
+ * lesson-04/demo.css — 第 4 章交互演示专用样式
+ * ------------------------------------------------------------
+ * 由旧版 styles.css 裁减而来：只保留 demos.js 依赖的演示规则，
+ * 页面级样式（Tab / 讲解区 / 代码区 / 语法高亮 / 翻页 / 顶栏）
+ * 已由 ../shared/theme.css 与 ../shared/warm-skin.css 统一提供。
+ * ============================================================ */
+
+.tree-list li > .label { display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  transition: all 0.15s;
+  font-size: 13px; }
+
+.tree-list li > .label:hover { background: #eef2ff;
+  border-color: #6366f1;
+  color: #1e1b4b; }
+
+.tree-list li.selected > .label { background: #dbeafe;
+  border-color: #2563eb;
+  color: #1e40af;
+  font-weight: 600; }
+
+/* ---------- 控制条（共用） ---------- */
+.controls { display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 10px 0; }
+
+.controls label { font-size: 13px; color: #475569; }
+
+.controls select, .controls input { padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  font-size: 13px;
+  font-family: inherit;
+  background: white; }
+
+.controls input[type=range] { width: 160px; }
+
+.demo-legend { font-size: 12px;
+  color: #64748b;
+  margin: 8px 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; }
+
+.chapter-nav a.active { background: #eff6ff;
+  color: #1d4ed8;
+  border-left-color: #2563eb;
+  font-weight: 600; }
+
+.chapter.active { display: block; }
+
+.tab-btn.active { color: #2563eb;
+  border-bottom-color: #2563eb; }
+
+.tab-panel.active { display: block; }
+
+/* ---------- 演示区 ---------- */
+.demo-hint { background: #f0f9ff;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #0c4a6e;
+  margin-bottom: 12px; }
+
+.demo-mount { background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 16px;
+  min-height: 200px; }
+
+.demo-mount svg { display: block; margin: 8px 0; }
+
+.demo-sub { background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 12px;
+  margin: 12px 0; }
+
+.demo-sub h4 { font-size: 13px;
+  color: #475569;
+  margin-bottom: 8px;
+  font-weight: 600; }
+
+.demo-detail { background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 14px;
+  font-size: 13px;
+  color: #475569;
+  min-height: 140px; }
+
+.demo-detail h4 { color: #1e293b; margin-bottom: 6px; }
+
+.demo-legend { font-size: 12px;
+  color: #64748b;
+  margin-top: 8px; }
+
+.console { background: #0f172a;
+  color: #cbd5e1;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 12px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  max-height: 280px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  margin: 8px 0; }
+
+.controls { display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 12px 0; }
+
+.controls select { padding: 5px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font-size: 13px;
+  font-family: inherit; }
+
+/* 热图 */
+.heatmap-svg { display: block;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px; }
+
+/* 颜色原则 demo：决策表 */
+.decision-table { width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 12px 0; }
+
+.decision-table th, .decision-table td { border: 1px solid #e2e8f0;
+  padding: 8px 10px;
+  text-align: left; }
+
+.decision-table th { background: #ede9fe;
+  color: #4338ca;
+  font-weight: 600; }
+
+.decision-table td.swatch { width: 110px;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 11px; }
+
+/* 倾角 demo */
+.slope-svg { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; display: block }
+
+.slope-control { display: flex; align-items: center; gap: 12px; margin: 12px 0;
+  font-size: 13px; }
+
+.slope-control input[type=range] { width: 220px }
+
+.slope-control .slope-readout { font-family: "JetBrains Mono", Consolas, monospace;
+  background: #1e293b;
+  color: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 13px; }
+
+/* Marching Squares 网格 */
+.ms-svg { background: #fff; border: 1px solid #e2e8f0; border-radius: 4px; display: block }
+
+.ms-threshold-control { display: flex; align-items: center; gap: 12px; margin: 10px 0;
+  font-size: 13px; }
+
+.ms-threshold-control input[type=range] { width: 280px }
+
+/* 通用 demo 控件 */
+.demo-control { display: flex; flex-wrap: wrap; gap: 8px;
+  margin: 8px 0; align-items: center;
+  font-size: 13px; }
+
+.demo-control label { display: inline-flex; align-items: center; gap: 4px;
+  background: #f1f5f9;
+  padding: 4px 10px;
+  border-radius: 4px;
+  color: #475569;
+  cursor: pointer; }
+
+.demo-control label.active { background: #ede9fe;
+  color: #4338ca;
+  font-weight: 600; }
+
+.demo-control select { padding: 4px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  background: #fff;
+  font-size: 13px; }
+
+.harmony-card.active { background: #fef3c7; border-color: #f59e0b; }

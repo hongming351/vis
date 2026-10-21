@@ -1,0 +1,296 @@
+/* ============================================================
+ * shared/warm-skin.css — 「温暖编辑式学习空间」换皮层
+ * ------------------------------------------------------------
+ * 用途：让旧版课程页（lesson-01 ~ lesson-05）与新版首页视觉统一。
+ * 原则：
+ *   1. 只覆盖「表面」——纸色背景、墨色文字、圆角、边框、柔和阴影、标题字体
+ *   2. 不碰布局、不碰尺寸、不碰 JS 依赖的 class 名与 DOM 结构
+ *   3. 在本文件之后引入即可靠层叠胜出，因此由各课页 <head> 最后引入
+ * 引入方式：<link rel="stylesheet" href="../shared/warm-skin.css">
+ * ============================================================ */
+
+:root {
+  /* 与新版 styles.css 完全一致的令牌，保证全局一套设计语言 */
+  --warm-paper: #F4F0E8;
+  --warm-paper-2: #EBE5D9;
+  --warm-card: #FFFFFF;
+  --warm-ink: #161513;
+  --warm-ink-2: #5B564E;
+  --warm-ink-3: #9C958A;
+  --warm-accent: #E4572E;
+  --warm-accent-soft: #FCE9E1;
+  --warm-green: #2E6B4F;
+  --warm-green-soft: #DCEBE1;
+  --warm-line: rgba(22, 21, 19, 0.12);
+  --warm-line-2: rgba(22, 21, 19, 0.07);
+  --warm-serif: "Fraunces", "Noto Serif SC", Georgia, "Songti SC", "SimSun", serif;
+  --warm-sans: "Inter", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --warm-mono: "JetBrains Mono", SFMono-Regular, Consolas, "Liberation Mono", monospace;
+  --warm-r-md: 20px;
+  --warm-r-sm: 12px;
+  --warm-shadow-1: 0 1px 2px rgba(22, 21, 19, 0.04);
+  --warm-shadow-2: 0 6px 20px rgba(22, 21, 19, 0.06);
+  --warm-shadow-3: 0 18px 44px rgba(22, 21, 19, 0.12);
+}
+
+/* ---------- 纸与墨 ---------- */
+html, body {
+  background: var(--warm-paper) !important;
+  color: var(--warm-ink) !important;
+  font-family: var(--warm-sans) !important;
+}
+
+/* 纸面肌理：极淡网点，与新版首页一致 */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: radial-gradient(circle at 1px 1px, rgba(22, 21, 19, 0.045) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+body > * { position: relative; z-index: 1; }
+
+/* ---------- 顶部条 ---------- */
+.course-topbar {
+  background: rgba(244, 240, 232, 0.88) !important;
+  backdrop-filter: saturate(1.2) blur(12px);
+  border-bottom: 1px solid var(--warm-line-2) !important;
+  box-shadow: none !important;
+  color: var(--warm-ink) !important;
+}
+.course-topbar .brand,
+.course-topbar .brand:hover { color: var(--warm-ink) !important; background: none !important; }
+.course-topbar .brand .back { color: var(--warm-accent); }
+.course-topbar ul.tabs a {
+  color: var(--warm-ink-2) !important;
+  border-radius: 999px !important;
+  background: none !important;
+  border: 1px solid transparent !important;
+}
+.course-topbar ul.tabs a:hover {
+  color: var(--warm-accent) !important;
+  background: var(--warm-accent-soft) !important;
+  border-color: rgba(228, 87, 46, 0.28) !important;
+}
+.course-topbar ul.tabs a.current,
+.course-topbar ul.tabs a.current:hover {
+  background: var(--warm-ink) !important;
+  color: var(--warm-paper) !important;
+  border-color: var(--warm-ink) !important;
+}
+/* 语言切换按钮 */
+.lang-switch, .lang-switch-floating, #lang-switch {
+  border-color: var(--warm-line) !important;
+  color: var(--warm-ink-2) !important;
+  background: var(--warm-card) !important;
+  border-radius: 999px !important;
+}
+.lang-switch button.active { background: var(--warm-ink); color: var(--warm-paper); }
+.lang-switch button { border-radius: 999px; }
+
+/* ---------- 章节大标题 ---------- */
+.lesson-header {
+  background: var(--warm-paper) !important;
+  color: var(--warm-ink) !important;
+  border-bottom: 1px solid var(--warm-line) !important;
+  padding: 44px 32px 30px !important;
+}
+.lesson-header h1 {
+  font-family: var(--warm-serif) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.015em !important;
+  font-size: clamp(1.9rem, 4vw, 2.8rem) !important;
+  color: var(--warm-ink) !important;
+}
+.lesson-header .subtitle { color: var(--warm-ink-2) !important; }
+.header-tip { color: var(--warm-ink-3) !important; }
+
+/* ---------- 章节编号：衬线斜体 + 右侧英文小字 ---------- */
+.chapter > h2, .chapter-content > h2, .chapter-title {
+  font-family: var(--warm-serif) !important;
+  font-weight: 600 !important;
+  color: var(--warm-ink) !important;
+  letter-spacing: -0.01em !important;
+  border-bottom: 1px solid var(--warm-line) !important;
+  padding-bottom: 14px !important;
+}
+.chapter-subtitle {
+  color: var(--warm-ink-3) !important;
+  font-size: 10.5px !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+}
+
+/* ---------- 目录 / 侧栏 ---------- */
+.toc, .chapter-nav {
+  background: var(--warm-card) !important;
+  border: 1px solid var(--warm-line) !important;
+  border-radius: var(--warm-r-md) !important;
+  box-shadow: var(--warm-shadow-1) !important;
+}
+.toc a, .chapter-nav a { color: var(--warm-ink-2) !important; border-radius: var(--warm-r-sm) !important; }
+.toc a:hover, .chapter-nav a:hover {
+  background: var(--warm-accent-soft) !important;
+  color: var(--warm-ink) !important;
+}
+.toc a.current, .chapter-nav a.current {
+  background: var(--warm-ink) !important;
+  color: var(--warm-paper) !important;
+}
+
+/* ---------- 课程仪表板（换皮到温暖编辑式配色） ---------- */
+.course-dash { border-top-color: var(--warm-line-2) !important; }
+.dash-seg { stroke: #F7F4EE; }
+.dash-dot { background: #F7F4EE; border-color: var(--warm-line) !important; }
+.dash-center strong { color: var(--warm-ink) !important; }
+.dash-center span { color: var(--warm-ink-3) !important; }
+.dash-congrats {
+  color: #8A3E1C !important;
+  background: var(--warm-accent-soft) !important;
+  border-color: rgba(228, 87, 46, 0.28) !important;
+}
+.dash-reset { color: var(--warm-ink-3) !important; }
+.dash-reset:hover { color: var(--warm-accent) !important; }
+
+/* 进度条：已完成用强调橙 */
+.progress-track { background: var(--warm-paper-2) !important; border-radius: 999px !important; }
+.progress-fill { background: var(--warm-accent) !important; border-radius: 999px !important; }
+
+/* ---------- 主体与卡片 ---------- */
+.lesson-main { background: var(--warm-paper) !important; }
+.lesson-main, .chapter-content { color: var(--warm-ink) !important; }
+
+.objectives, .summary, .panel, .demo-card, .demo-panel, .demo-detail {
+  background: var(--warm-card) !important;
+  border: 1px solid var(--warm-line) !important;
+  border-radius: var(--warm-r-md) !important;
+  box-shadow: var(--warm-shadow-1) !important;
+  color: var(--warm-ink) !important;
+}
+
+/* 代码块：深咖底、暖白字 */
+pre, .code-block, pre.code, .console {
+  background: #1B1917 !important;
+  color: #E8E4DC !important;
+  border-radius: var(--warm-r-md) !important;
+  border: 1px solid transparent !important;
+  box-shadow: var(--warm-shadow-2) !important;
+  font-family: var(--warm-mono) !important;
+}
+.console { font-size: 12.5px; line-height: 1.9; }
+
+/* 代码高亮四色与新版统一 */
+.cmt, .comment { color: #6E6A62 !important; font-style: italic; }
+.str, .string { color: #A5D6A7 !important; }
+.num, .number { color: #CCFF00 !important; }
+.kw, .keyword { color: #FF8A65 !important; }
+
+/* 关键点 / 提示框 */
+.key-point, .note, .callout {
+  background: var(--warm-accent-soft) !important;
+  border-left: 3px solid var(--warm-accent) !important;
+  border-radius: var(--warm-r-sm) !important;
+  color: var(--warm-ink) !important;
+}
+.code-purpose {
+  border-left-color: var(--warm-line) !important;
+  color: var(--warm-ink-2) !important;
+}
+
+/* ---------- 按钮 ---------- */
+.tab-btn, .demo-btn, .btn, button.controls {
+  border-radius: 999px !important;
+  border: 1px solid var(--warm-line) !important;
+  background: var(--warm-card) !important;
+  color: var(--warm-ink) !important;
+  font-family: var(--warm-sans) !important;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s !important;
+}
+.tab-btn:hover, .demo-btn:hover, .btn:hover, button.controls:hover {
+  border-color: var(--warm-accent) !important;
+  background: var(--warm-accent-soft) !important;
+  transform: translateY(-1px);
+}
+.tab-btn.active, .demo-btn.active {
+  background: var(--warm-ink) !important;
+  border-color: var(--warm-ink) !important;
+  color: var(--warm-paper) !important;
+}
+
+/* ---------- 表格 ---------- */
+.theory-table, table, .decision-table {
+  border-radius: var(--warm-r-sm) !important;
+  overflow: hidden;
+  border-collapse: separate !important;
+  border-spacing: 0;
+}
+.theory-table th, table th, .decision-table th {
+  background: var(--warm-paper-2) !important;
+  color: var(--warm-ink) !important;
+  font-family: var(--warm-sans) !important;
+  font-weight: 600 !important;
+}
+.theory-table td, table td, .decision-table td { border-color: var(--warm-line-2) !important; }
+.theory-table tr:nth-child(even) td, table tr:nth-child(even) td { background: rgba(235, 229, 217, 0.4) !important; }
+
+/* ---------- 测验 ---------- */
+.quiz, .quiz .q {
+  background: var(--warm-card) !important;
+  border: 1px solid var(--warm-line) !important;
+  border-radius: var(--warm-r-md) !important;
+  box-shadow: var(--warm-shadow-1) !important;
+}
+.quiz .opt, .quiz .mark { border-radius: var(--warm-r-sm) !important; }
+.quiz .opt:hover { border-color: var(--warm-accent) !important; background: var(--warm-accent-soft) !important; }
+.quiz .opt.correct, .quiz .mark.correct { background: var(--warm-green-soft) !important; color: var(--warm-green) !important; border-color: var(--warm-green) !important; }
+.quiz .opt.wrong, .quiz .mark.wrong { background: var(--warm-accent-soft) !important; color: #b23c17 !important; border-color: var(--warm-accent) !important; }
+
+/* ---------- 上一章 / 下一章 ---------- */
+.chapter-pager, .lesson-footer {
+  background: var(--warm-paper) !important;
+  border-top: 1px solid var(--warm-line) !important;
+}
+.chapter-pager a, .lesson-footer a {
+  background: var(--warm-card) !important;
+  border: 1px solid var(--warm-line) !important;
+  border-radius: var(--warm-r-md) !important;
+  color: var(--warm-ink) !important;
+  box-shadow: var(--warm-shadow-1) !important;
+}
+.chapter-pager a:hover, .lesson-footer a:hover {
+  border-color: rgba(228, 87, 46, 0.4) !important;
+  box-shadow: var(--warm-shadow-2) !important;
+  transform: translateY(-2px);
+}
+
+/* ---------- 演示区 ---------- */
+.demo-mount, .demo-sub {
+  background: var(--warm-card) !important;
+  border: 1px solid var(--warm-line) !important;
+  border-radius: var(--warm-r-md) !important;
+}
+.demo-hint { color: var(--warm-ink-2) !important; background: var(--warm-paper-2) !important; border-radius: var(--warm-r-sm) !important; }
+.demo-legend, .legend-strip { color: var(--warm-ink-2) !important; }
+
+/* 通用小徽标 */
+.tag, .badge, .pill {
+  background: var(--warm-paper-2) !important;
+  color: var(--warm-ink-2) !important;
+  border-radius: 999px !important;
+  border: 1px solid transparent !important;
+}
+
+/* ---------- 移动端 ---------- */
+@media (max-width: 760px) {
+  .lesson-header { padding: 28px 18px 20px !important; }
+  .course-topbar ul.tabs { gap: 4px; }
+}
+
+/* ---------- 尊重 reduced-motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+  body::before { display: none; }
+}

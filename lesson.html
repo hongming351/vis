@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>课程页 · 温暖编辑式学习空间</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@300..600&family=Noto+Serif+SC:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="lesson.css">
+</head>
+<body class="lesson-page">
+
+  <!-- 自定义光标 -->
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+  <header class="l-top">
+    <div class="wrap l-top-inner">
+      <a class="l-brand" href="index.html">
+        <span class="dot"></span>
+        <span>温暖编辑式学习空间</span>
+      </a>
+      <nav class="l-crumb">
+        <a id="crumb-course" href="index.html">课程</a>
+        <span class="sep">/</span>
+        <span id="crumb-lesson">第 1 节</span>
+      </nav>
+      <div class="l-top-right">
+        <span class="ring sm" id="lesson-ring" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 54 54">
+            <circle class="track" cx="27" cy="27" r="23" fill="none" stroke-width="5"></circle>
+            <circle class="bar" id="lesson-ring-bar" cx="27" cy="27" r="23" fill="none" stroke-width="5"
+                    stroke-dasharray="144.5" stroke-dashoffset="144.5"></circle>
+          </svg>
+        </span>
+        <a class="btn ghost sm" id="btn-home" href="index.html">返回首页</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- 节标题 -->
+    <section class="l-head reveal">
+      <p class="l-kicker"><span class="num" id="lesson-index">01</span><span class="en" id="lesson-en">Lesson</span></p>
+      <h1 id="lesson-title">标题</h1>
+      <p class="l-intro" id="lesson-intro"></p>
+      <ul class="l-points" id="lesson-points"></ul>
+    </section>
+
+    <!-- 代码逐步执行 -->
+    <section class="l-block reveal" id="code-section">
+      <div class="block-head">
+        <div>
+          <span class="sec-num">01</span>
+          <h2>逐步执行</h2>
+          <span class="sec-tag">STEP THROUGH</span>
+        </div>
+        <div class="code-controls">
+          <span class="step-counter" id="step-counter">行 0 / 0</span>
+          <button class="btn sm" id="btn-play" type="button">下一步 →</button>
+          <button class="btn ghost sm" id="btn-auto" type="button">自动播放</button>
+          <button class="btn ghost sm" id="btn-reset" type="button">重置</button>
+        </div>
+      </div>
+      <p class="block-hint">用 <kbd>→</kbd> 键或按钮逐行前进；空格键自动播放；悬停左侧行号可以看这一行在做什么。</p>
+
+      <div class="code-wrap">
+        <div class="code-block">
+          <div class="code-lines" id="code-lines"></div>
+        </div>
+        <p class="step-note" id="step-note">点击「下一步」开始逐行执行</p>
+      </div>
+    </section>
+
+    <!-- 变量面板 + 控制台 -->
+    <section class="l-grid reveal">
+      <div class="panel var-panel">
+        <div class="panel-head">
+          <h3>变量面板</h3>
+          <span class="panel-tag">SCOPE</span>
+        </div>
+        <div class="var-list" id="var-list"></div>
+        <p class="panel-empty" id="var-empty">还没有变量。执行几行之后这里会实时显示名称、类型与值。</p>
+      </div>
+
+      <div class="panel console-panel">
+        <div class="panel-head">
+          <h3>控制台</h3>
+          <span class="panel-tag">OUTPUT</span>
+        </div>
+        <div class="console-out" id="console-out"></div>
+        <p class="panel-empty" id="console-empty">console.log 的输出会逐条出现在这里。</p>
+      </div>
+    </section>
+
+    <!-- 练习区 -->
+    <section class="l-block reveal">
+      <div class="block-head">
+        <div>
+          <span class="sec-num">02</span>
+          <h2>动手练习</h2>
+          <span class="sec-tag">EXERCISE</span>
+        </div>
+      </div>
+      <p class="block-hint" id="exercise-prompt"></p>
+      <div class="ex-wrap">
+        <textarea class="ex-code" id="exercise-code" spellcheck="false" aria-label="练习代码编辑区"></textarea>
+        <div class="ex-actions">
+          <button class="btn sm" id="btn-run-ex" type="button">运行并检查</button>
+          <button class="btn ghost sm" id="btn-reset-ex" type="button">还原初始代码</button>
+        </div>
+        <div class="ex-result" id="exercise-result" hidden></div>
+        <div class="ex-checks" id="exercise-checks"></div>
+      </div>
+    </section>
+
+    <!-- 小测验 -->
+    <section class="l-block reveal">
+      <div class="block-head">
+        <div>
+          <span class="sec-num">03</span>
+          <h2>小测验</h2>
+          <span class="sec-tag">QUIZ</span>
+        </div>
+        <span class="done-badge" id="done-badge"></span>
+      </div>
+      <div id="quiz"></div>
+    </section>
+
+    <!-- 上一节 / 下一节 -->
+    <nav class="pager reveal" id="pager" aria-label="课程导航"></nav>
+  </main>
+
+  <footer>
+    <div class="wrap foot-inner">
+      <p>《可视化导论》· 温暖编辑式学习空间 · 纯静态，无后端依赖</p>
+      <div class="foot-links">
+        <a href="index.html">首页</a>
+        <a href="index.html#chapters">全部课程</a>
+        <a href="index.html#contact">联系</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="line-tip" id="line-tip" hidden role="status"></div>
+
+  <script src="courses.js"></script>
+  <script src="shared/chrome.js"></script>
+  <script src="lesson.js"></script>
+</body>
+</html>

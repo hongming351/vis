@@ -126,6 +126,12 @@ const I18N = {
 
     'portal.nav.howto': '▶️ 使用方式',
 
+    'portal.nav.path': '📈 学习路径',
+
+    'portal.path.title': '📈 学习路径',
+
+    'portal.path.desc': '从数据出发，经可视化流程与配色基础，再到低维与时序可视化——一条由浅入深的完整链路。',
+
     'portal.nav.chapters': '📚 章节',
 
     'portal.hero.meta': '中国石油大学（华东）· 授课教师：<a href="https://cinger007.github.io" target="_blank" rel="noopener" class="teacher-link">李昕</a> · 主要参考教材：陈为《可视化导论》',
@@ -153,7 +159,7 @@ const I18N = {
     'portal.about.principle': '设计原则',
     'portal.about.principle.desc': '案例为中心（不是理论为中心）。每个知识点都嵌入到用户的实践案例里，配 ⭐ 关键点解释 + 可运行演示。',
     'portal.about.stack': '技术栈',
-    'portal.about.stack.desc': '零依赖：纯 HTML + CSS + ES modules + D3.js v7 (CDN)。本地一条命令 python -m http.server 启动，无需 npm。',
+    'portal.about.stack.desc': '零依赖：纯 HTML + CSS + ES modules + D3.js v7（本地 vendored，离线可用）。本地一条命令 python -m http.server 启动，无需 npm。',
     'portal.about.data': '数据集',
     'portal.about.data.desc': '新生数据 CSV 与 Crime 数据等都已打包进 data/ 目录，浏览器 fetch 加载，离线可用。',
 
@@ -288,6 +294,9 @@ const I18N = {
     'portal.cta.enter1': 'Open Chapter →',
     'portal.nav.about': 'ℹ️ About',
     'portal.nav.howto': '▶️ How to Use',
+    'portal.nav.path': '📈 Learning Path',
+    'portal.path.title': '📈 Learning Path',
+    'portal.path.desc': 'From data, through the visualization workflow and color fundamentals, to low-dimensional and time-series visualization — a complete path from beginner to advanced.',
     'portal.nav.chapters': '📚 Chapters',
     'portal.hero.meta': 'China University of Petroleum (Huadong) · Instructor: <a href="https://cinger007.github.io" target="_blank" rel="noopener" class="teacher-link">Li Xin</a> · Main reference: Chen Wei’s 《Introduction to Visualization》',
     'portal.hero.subtitle': 'From Data to Charts: A Hands-on JavaScript + D3.js Course',
@@ -310,7 +319,7 @@ const I18N = {
     'portal.about.principle': 'Design Principle',
     'portal.about.principle.desc': 'Case-centered (not theory-centered). Each concept is grounded in their hands-on cases, with ⭐ Key Code explanations + runnable demos.',
     'portal.about.stack': 'Tech Stack',
-    'portal.about.stack.desc': 'Zero dependencies: plain HTML + CSS + ES modules + D3.js v7 (CDN). One command python -m http.server. No npm needed.',
+    'portal.about.stack.desc': 'Zero dependencies: plain HTML + CSS + ES modules + D3.js v7 (vendored locally, works offline). One command python -m http.server. No npm needed.',
     'portal.about.data': 'Datasets',
     'portal.about.data.desc': 'Student CSV + Crime CSV etc. all packaged in data/. Loaded via fetch, works offline.',
 
